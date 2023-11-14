@@ -22,6 +22,8 @@ def reverse_dns_lookup(ip_address):
         return "No domain name found for this IP address."
 
 # Example usage
-ip_address = "8.8.8.8"
+# ip_address = "8.8.8.8"
+ip_address = "95.216.138.14"
+
 domain_name = reverse_dns_lookup(ip_address)
-print(f"Domain name for IP address {ip_address}: {domain_name}")
+print(f"Domain name for IP address {ip_address}: {domain_name.decode('utf-8')}")
