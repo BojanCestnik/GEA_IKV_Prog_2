@@ -1,6 +1,6 @@
 import dns.resolver
  
-hosts = ["python.org", "google.com", "microsoft.com", "temida.si"]
+hosts = ["python.org", "google.com", "microsoft.com"]
 
 for host in hosts:
     print(host)
