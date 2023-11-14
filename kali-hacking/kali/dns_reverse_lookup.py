@@ -1,12 +1,3 @@
-# import dns.reversename
-
-# name = dns.reversename.from_address("45.55.99.72")
-# name = dns.reversename.from_address("95.216.138.14")
-# print(name)
-# print(dns.reversename.to_address(name))
-
-
-
 from scapy.all import sr1, IP, UDP, DNS, DNSQR, DNSRR
 
 def reverse_dns_lookup(ip_address):
@@ -26,4 +17,4 @@ def reverse_dns_lookup(ip_address):
 ip_address = "95.216.138.14"
 
 domain_name = reverse_dns_lookup(ip_address)
-print(f"Domain name for IP address {ip_address}: {domain_name.decode('utf-8')}")
+print(f"Domain name for IP address {ip_address}: {domain_name}")
